@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Code Editor</title>
+    </head>
+<body>
+    <div>
+    <span id="a1">HTML</span>
+    <span id="a2">CSS</span>
+    <span id="a3">JavaScript</span>
+    </div>
+    <form>
+        <textarea id="a"></textarea>
+        <textarea id="b"></textarea>
+        <textarea id="c"></textarea>
+    </form>
+    <button id="submit" onclick="myfunction()">Submit</button>
+    <iframe src="" id="out"></iframe>
+    <style>
+        textarea{
+            color: white;
+            height: 80vh;
+            width: 30vw;
+            margin: 10px;
+            background-color: black;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        form{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        div{
+            display: flex;
+        }
+        span{
+            display: inline-block;
+            width: 30vw;
+            background-color: black;
+            margin: 10px;
+            position: relative;
+            border-radius: 10px;
+            padding: 5px;
+            color: white;
+            margin-top: 30px;
+            transition: 0.5s;
+        }
+        #submit{
+            position: absolute;
+            top: 10px;
+            right: 3vw;
+            color: white;
+            background-color: black;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        #submit:hover,span:hover,textarea:focus{
+            color: black;
+            background-color: white;
+            border: 2px solid black;
+        }
+        #out{
+            height: 80vh;
+            width: 92vw;
+            margin: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+    function myfunction(){
+        let l=document.getElementById("a").value;
+        let k=document.getElementById("b").value;
+        let j=document.getElementById("c").value;
+        document.getElementById("out").contentDocument.body.innerHTML=l+"<style>"+k+"</style>"+"<script>"+j+"<\/script>";
+        event.preventDefault();
+    };
+    </script>
+</body>
+</html>
